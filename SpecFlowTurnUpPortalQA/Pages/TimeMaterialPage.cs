@@ -68,6 +68,23 @@ namespace SpecFlowTurnUpPortalQA.Pages
         
         }
 
+        public void VerifyDeletedTMRecord(IWebDriver driver, string code)
+        {
+            Thread.Sleep(1000);
+            IWebElement newRecordCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            //if (newRecordCode.Text == "February2024")
+            //{
+            //    Assert.Pass("New Material/Time Record has been created successfully");
+            //}
+            //else
+            //{
+            //    Assert.Fail("New Material/Time Record has not been created :( :( :(");
+            //}
+
+            Assert.That((newRecordCode.Text != code), "New Material/Time Record has been deleted");
+
+        }
+
         public void EditTimeMaterialRecord(IWebDriver driver, string code)
         {
             //Code for Edit Time Record

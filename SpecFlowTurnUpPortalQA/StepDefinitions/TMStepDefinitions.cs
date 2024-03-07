@@ -12,17 +12,16 @@ namespace SpecFlowTurnUpPortalQA.StepDefinitions
         LoginPage loginPageObj = new LoginPage();
         HomePage homePageObj = new HomePage();
         TimeMaterialPage timeMaterialPageObj = new TimeMaterialPage();
-        
-        [BeforeScenario]
-        public void SetUpTimeAndMaterial()
+
+          [BeforeScenario]
+         public void SetUpTimeAndMaterial()
         {
             //Open Chrome/Firefox browser
             driver = new ChromeDriver();
             Thread.Sleep(1000);
         }
 
-        [AfterScenario]
-
+                [AfterScenario]
         public void CloseTestRun()
         {
             driver.Quit();
@@ -37,7 +36,7 @@ namespace SpecFlowTurnUpPortalQA.StepDefinitions
         [When(@"user enters valid credentials")]
         public void WhenUserEntersValidCredentials()
         {
-            loginPageObj.LoginActions(driver, "hari", "123123");
+            loginPageObj.LoginActions(driver);
         }
 
         [Then(@"user is logged in successfully and lands on homepage with correct user name")]
@@ -51,7 +50,7 @@ namespace SpecFlowTurnUpPortalQA.StepDefinitions
         public void GivenUserLoginToTurnupPortal()
         {
             loginPageObj.launchPortal(driver);  
-            loginPageObj.LoginActions(driver, "hari", "123123");
+            loginPageObj.LoginActions(driver);
             homePageObj.VerifyLoggedInUser(driver);
         }
 
@@ -91,7 +90,7 @@ namespace SpecFlowTurnUpPortalQA.StepDefinitions
         [Then(@"system should delete last record")]
         public void ThenSystemShouldDeleteLastRecord()
         {
-            timeMaterialPageObj.VerifyNewTMRecord(driver, "DTU65");
+            timeMaterialPageObj.VerifyDeletedTMRecord(driver, "DTU65");
         }
 
     }

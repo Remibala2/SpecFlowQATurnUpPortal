@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace SpecFlowTurnUpPortalQA.Pages
 {
@@ -20,18 +21,28 @@ namespace SpecFlowTurnUpPortalQA.Pages
             string baseURL = "http://horse.industryconnect.io/";
             driver.Navigate().GoToUrl(baseURL);
         }
-        public void LoginActions(IWebDriver driver, string username, string password)
+        public void LoginActions(IWebDriver driver)
         {
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             //Identify username textbox and enter valid username
             usernameTextbox = driver.FindElement(usernameTextboxLocator);
-            usernameTextbox.SendKeys(username);
+            usernameTextbox.SendKeys("hari");
 
             //Identify password textbox and enter password
             passwordTextbox = driver.FindElement(passwordTextboxLocator);
-            passwordTextbox.SendKeys(password);
+            passwordTextbox.SendKeys("123123");
 
+            //Just to wait for 5 seconds doing nothing
+            Thread.Sleep(2000);
+
+            //Identify login button and click on Login Button
+            loginButton = driver.FindElement(loginButtonLocator);
+            loginButton.Click();
+        }
+
+        public void VerifyLoggedInUser(IWebDriver driver)
+        {
             //Just to wait for 5 seconds doing nothing
             Thread.Sleep(2000);
 
