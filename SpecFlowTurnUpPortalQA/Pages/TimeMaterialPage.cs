@@ -6,7 +6,7 @@ namespace SpecFlowTurnUpPortalQA.Pages
 {
     public class TimeMaterialPage
     {
-        public void CreateTimeMaterialRecord(IWebDriver driver)
+        public void CreateTimeMaterialRecord(IWebDriver driver, string code, string description, string price)
         {
             //Create a new Time record
 
@@ -85,7 +85,7 @@ namespace SpecFlowTurnUpPortalQA.Pages
 
         }
 
-        public void EditTimeMaterialRecord(IWebDriver driver, string code)
+        public void EditTimeMaterialRecord(IWebDriver driver, String code, String decription, string price)
         {
             //Code for Edit Time Record
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -130,7 +130,7 @@ namespace SpecFlowTurnUpPortalQA.Pages
             Assert.That((editedCode.Text == code), "Time Record has not been updated");
         }
 
-        public void DeleteTimeMaterialRecord(IWebDriver driver)
+        public void DeleteTimeMaterialRecord(IWebDriver driver, string code)
         {
             //Code for Delete Time Record
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));

@@ -21,17 +21,17 @@ namespace SpecFlowTurnUpPortalQA.Pages
             string baseURL = "http://horse.industryconnect.io/";
             driver.Navigate().GoToUrl(baseURL);
         }
-        public void LoginActions(IWebDriver driver)
+        public void LoginActions(IWebDriver driver, String username, String password)
         {
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             //Identify username textbox and enter valid username
             usernameTextbox = driver.FindElement(usernameTextboxLocator);
-            usernameTextbox.SendKeys("hari");
+            usernameTextbox.SendKeys(username);
 
             //Identify password textbox and enter password
             passwordTextbox = driver.FindElement(passwordTextboxLocator);
-            passwordTextbox.SendKeys("123123");
+            passwordTextbox.SendKeys(password);
 
             //Just to wait for 5 seconds doing nothing
             Thread.Sleep(2000);

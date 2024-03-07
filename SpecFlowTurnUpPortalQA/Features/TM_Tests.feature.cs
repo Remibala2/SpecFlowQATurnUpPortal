@@ -75,10 +75,13 @@ namespace SpecFlowTurnUpPortalQA.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login - Verify user is able to login with valid credentials")]
-        public void Login_VerifyUserIsAbleToLoginWithValidCredentials()
+        [NUnit.Framework.TestCaseAttribute("\'hari\'", "\'123123\'", null)]
+        public void Login_VerifyUserIsAbleToLoginWithValidCredentials(string username, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login - Verify user is able to login with valid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -94,7 +97,7 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("user navigate to turnup portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-testRunner.When("user enters valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("user enters valid credentials {0} {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
 testRunner.Then("user is logged in successfully and lands on homepage with correct user name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -105,12 +108,18 @@ testRunner.Then("user is logged in successfully and lands on homepage with corre
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("CreateTM - Verify user is able to create new TM entry")]
-        public void CreateTM_VerifyUserIsAbleToCreateNewTMEntry()
+        [NUnit.Framework.TestCaseAttribute("\'hari\'", "\'123123\'", "\'DTU65\'", "\'test\'", "\'2\'", null)]
+        public void CreateTM_VerifyUserIsAbleToCreateNewTMEntry(string username, string password, string code, string description, string price, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("code", code);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("price", price);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("CreateTM - Verify user is able to create new TM entry", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -120,14 +129,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 13
-testRunner.Given("user login to turnup portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+testRunner.Given(string.Format("user login to turnup portal {0} {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 14
-testRunner.When("user creates a new TM record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+testRunner.When(string.Format("user creates a new TM record {0} {1} {2}", code, description, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
-testRunner.Then("system should save the new record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+testRunner.Then(string.Format("system should save the new record {0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -135,12 +144,18 @@ testRunner.Then("system should save the new record", ((string)(null)), ((TechTal
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("EditTM - Verify user is able to edit new TM entry")]
-        public void EditTM_VerifyUserIsAbleToEditNewTMEntry()
+        [NUnit.Framework.TestCaseAttribute("\'hari\'", "\'123123\'", "\'DTU65\'", "\'testedit\'", "\'2\'", null)]
+        public void EditTM_VerifyUserIsAbleToEditNewTMEntry(string username, string password, string code, string description, string price, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("code", code);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("price", price);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("EditTM - Verify user is able to edit new TM entry", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -150,14 +165,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 18
-testRunner.Given("user login to turnup portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+testRunner.Given(string.Format("user login to turnup portal {0} {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 19
-testRunner.When("user edits last created TM record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+testRunner.When(string.Format("user edits last created TM record {0} {1} {2}", code, description, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
-testRunner.Then("system should save changes to the last record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+testRunner.Then(string.Format("system should save changes to the last record {0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -165,12 +180,16 @@ testRunner.Then("system should save changes to the last record", ((string)(null)
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("DeleteTM - Verify user is able to delete last created TM entry")]
-        public void DeleteTM_VerifyUserIsAbleToDeleteLastCreatedTMEntry()
+        [NUnit.Framework.TestCaseAttribute("\'hari\'", "\'123123\'", "\'DTU65\'", null)]
+        public void DeleteTM_VerifyUserIsAbleToDeleteLastCreatedTMEntry(string username, string password, string code, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("code", code);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("DeleteTM - Verify user is able to delete last created TM entry", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -180,14 +199,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 23
-testRunner.Given("user login to turnup portal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 37
+testRunner.Given(string.Format("user login to turnup portal {0} {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 24
-testRunner.When("user deletes last created TM record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+testRunner.When(string.Format("user deletes last created TM record {0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
-testRunner.Then("system should delete last record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 39
+testRunner.Then(string.Format("system should delete last record {0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
